@@ -62,6 +62,22 @@
     .menu li a:hover {
       color: var(--oro);
     }
+    
+    /* 🔥 BOTÓN QUIERO MI TARJETA EN EL MENÚ */
+    .menu li a.btn-tarjeta {
+      background: var(--oro);
+      color: var(--azul);
+      padding: 8px 15px;
+      border-radius: 50px;
+      font-weight: bold;
+      border: 2px solid white;
+    }
+    
+    .menu li a.btn-tarjeta:hover {
+      background: white;
+      color: var(--azul);
+      border: 2px solid var(--oro);
+    }
 
     .hamburguesa {
       display: none;
@@ -87,7 +103,6 @@
       width: 100%;
       min-height: 300px;
       background-size: cover;
-      /* ✅ LA ÚNICA LÍNEA QUE CAMBIA: ahora enfoca la parte de ABAJO */
       background-position: center bottom;
       background-image: url('portada.jpg');
     }
@@ -271,6 +286,8 @@
       <li><a href="#servicios">Servicios</a></li>
       <li><a href="#qr">QR</a></li>
       <li><a href="#contacto">Contacto</a></li>
+      <!-- 🔥 NUEVA OPCIÓN EN EL MENÚ: QUIERO MI TARJETA -->
+      <li><a href="#quiero-tarjeta" class="btn-tarjeta">💳 QUIERO MI TARJETA</a></li>
     </ul>
   </div>
 </header>
@@ -338,6 +355,25 @@
   </div>
 </section>
 
+<!-- 🔥 NUEVA SECCIÓN: QUIERO MI TARJETA -->
+<section id="quiero-tarjeta" class="seccion">
+  <h2>💳 ¿QUIERES UNA TARJETA DIGITAL COMO ESTA?</h2>
+  <div class="contacto-box" style="background: #fff8e7; border: 3px solid var(--oro);">
+    <p style="font-size: 1.5rem; color: var(--azul); font-weight: bold;">¡CLARO QUE SÍ!</p>
+    <p>Si te gustó la tarjeta de <strong>Carlos Acarreos</strong>, tú también puedes tener la tuya:</p>
+    <ul style="list-style: none; text-align: left; margin: 20px 0; padding-left: 20px;">
+      <li>✓ Diseño profesional personalizado</li>
+      <li>✓ Tu propia filosofía (Misión, Visión, Valores)</li>
+      <li>✓ Tus servicios destacados</li>
+      <li>✓ Código QR exclusivo</li>
+      <li>✓ Botón de WhatsApp directo</li>
+      <li>✓ Aparecerás en la GUÍA DIGITAL</li>
+    </ul>
+    <p style="font-size: 1.3rem; margin: 20px 0;"><strong>Planes desde 10.000 pesos</strong></p>
+    <a href="https://wa.me/573005274172?text=Hola,%20quiero%20mi%20tarjeta%20digital%20como%20la%20de%20Carlos%20Acarreos" class="btn" style="background: var(--oro); color: var(--azul); font-size: 1.3rem; padding: 15px 40px;">💳 QUIERO LA MÍA AHORA</a>
+  </div>
+</section>
+
 <section id="contacto" class="seccion">
   <h2>CONTACTO</h2>
   <div class="contacto-box">
@@ -366,6 +402,19 @@
   document.querySelectorAll('.menu a').forEach(link => {
     link.addEventListener('click', () => {
       menu.classList.remove('mostrar');
+    });
+  });
+</script>
+
+<!-- 🔥 SCROLL SUAVE PARA EL NUEVO ENLACE -->
+<script>
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth' });
+      }
     });
   });
 </script>
